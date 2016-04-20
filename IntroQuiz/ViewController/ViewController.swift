@@ -12,7 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        ItunesApi.fetchSongsWithTerm("SEKAI"){ songs in
+            for song in songs {
+                print(song.trackName)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
