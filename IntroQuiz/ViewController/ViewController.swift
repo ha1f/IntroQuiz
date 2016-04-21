@@ -9,14 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // なぜかローカル変数だと再生されない
+    var player: SongPlayer = SongPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ItunesApi.fetchSongsWithTerm("SEKAI"){ songs in
+        ItunesApi.fetchSongsWithTerm("sekai"){[unowned self] songs in
             for song in songs {
                 print(song.trackName)
             }
+            self.player.setSong(songs.first!)
+            self.player.play()
         }
     }
 

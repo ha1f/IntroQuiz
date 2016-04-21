@@ -34,6 +34,20 @@ struct Song {
         previewUrl = songJson["previewUrl"].string ?? ""
         collectionName = songJson["collectionCensoredName"].string ?? ""
     }
+    
+    init() {
+        artistName = ""
+        trackName = ""
+        releaseDate = ""
+        
+        artworkUrl = ""
+        
+        trackTimeMillis = 0
+        primaryGenreName = ""
+        
+        previewUrl = ""
+        collectionName = ""
+    }
 }
 
 /*
