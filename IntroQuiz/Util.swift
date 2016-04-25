@@ -9,4 +9,7 @@
 import Foundation
 
 class Util {
+    static func restrectedValue<T: Comparable>(value: T, min minValue: T, max maxValue: T) -> T {
+        return value < minValue ? minValue : min(value, maxValue)
+    }
 }
