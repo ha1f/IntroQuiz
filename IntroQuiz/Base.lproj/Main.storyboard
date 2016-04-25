@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-Ys-Yru">
-                                <rect key="frame" x="0.0" y="64" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SongsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongsTableViewCell" rowHeight="76" id="cLF-Jj-IQb" customClass="SongsTableViewCell" customModule="IntroQuiz" customModuleProvider="target">
@@ -69,12 +69,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="sekai" placeholder="検索" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-TA-tkY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <scopeButtonTitles>
+                                    <string>Artist</string>
+                                    <string>Track</string>
+                                    <string>Albam</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Songs" id="i5x-7m-CcK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="searchBar" destination="cCX-TA-tkY" id="GIr-On-Y9z"/>
                         <outlet property="songsTableView" destination="PnL-Ys-Yru" id="Eo3-8Y-eqD"/>
                     </connections>
                 </viewController>

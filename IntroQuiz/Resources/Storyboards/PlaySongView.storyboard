@@ -28,7 +28,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLt-tc-fM0">
                                 <rect key="frame" x="164" y="515" width="46" height="50"/>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="Pause">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>

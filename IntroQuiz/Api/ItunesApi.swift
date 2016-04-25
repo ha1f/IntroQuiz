@@ -23,23 +23,25 @@ struct ApiClient {
         self.header = header
     }
     
-    func get(params: [String: String], completionHandler: JSON -> Void) {
+    func get(params: [String: String], completionHandler: JSON? -> Void) {
         request(.GET, uri, parameters: params, encoding: .URL, headers: header)
             .responseJSON { response in
-                guard let data = response.result.value else {
-                    return
+                if let data = response.result.value {
+                    completionHandler(JSON(data))
+                } else {
+                    completionHandler(nil)
                 }
-                completionHandler(JSON(data))
             }
     }
     
-    func post(params: [String: String], completionHandler: JSON -> Void) {
+    func post(params: [String: String], completionHandler: JSON? -> Void) {
         request(.POST, uri, parameters: params, encoding: .URL, headers: header)
             .responseJSON{ response in
-                guard let data = response.result.value else {
-                    return
+                if let data = response.result.value {
+                    completionHandler(JSON(data))
+                } else {
+                    completionHandler(nil)
                 }
-                completionHandler(JSON(data))
         }
     }
 }
@@ -50,17 +52,18 @@ class ItunesApi {
     
     static let client = ApiClient(uri: URI)
     
-    static func fetchSongsWithTerm(term: String, completion: (songs: [Song]) -> ()) {
+    static func fetchSongsWithTerm(term: String, completion completionHandler: (songs: [Song]?) -> ()) {
         let params = ["term": term, "country": "JP", "entity": "musicTrack"]
         
         client.get(params) { json in
-            guard let trackJsons = json["results"].array else {
-                return
+            if let trackJsons = json?["results"].array {
+                let songs = trackJsons.map({trackJson in
+                    Song(songJson: trackJson)
+                })
+                completionHandler(songs: songs)
+            } else {
+                completionHandler(songs: nil)
             }
-            let songs = trackJsons.map({trackJson in
-                Song(songJson: trackJson)
-            })
-            completion(songs: songs)
         }
     }
 }

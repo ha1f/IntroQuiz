@@ -13,11 +13,15 @@ class ViewController: UIViewController {
     let songRepository = ModelManager.manager.songRepository
     
     @IBOutlet weak var songsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        songRepository.fetchSongsWithTerm("sekai"){[unowned self] songs in
+        songRepository.fetchSongsWithTerm("sekai"){[weak self] _ in
+            guard let `self` = self else {
+                return
+            }
             self.songsTableView.reloadData()
         }
         
@@ -25,7 +29,19 @@ class ViewController: UIViewController {
         songsTableView.dataSource = self
         songsTableView.contentOffset = CGPoint(x: 0.0, y: 0.0)
         
+        searchBar.delegate = self
+        
         title = "Songs"
+    }
+    
+    func searchSongs(term: String) {
+        songRepository.replaceSongsWithTerm(term){[weak self] _ in
+            guard let `self` = self else {
+                return
+            }
+            self.songsTableView.reloadData()
+            self.searchBar.resignFirstResponder()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,8 +54,18 @@ class ViewController: UIViewController {
         let controller = storyboard.instantiateInitialViewController() as! PlaySongViewController
         controller.song = song
         self.navigationController?.pushViewController(controller, animated: true)
+    }    
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        print("search")
+        searchSongs(searchBar.text ?? "")
     }
     
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -62,6 +88,10 @@ extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         playSong(self.songRepository.songs[indexPath.row])
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
 }
 

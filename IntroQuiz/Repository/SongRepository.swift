@@ -14,14 +14,33 @@ class SongRepository {
         return _songs
     }
     
-    func fetchSongsWithTerm(term: String, completion: ([Song]) -> ()) {
-        if _songs.isEmpty {
-            ItunesApi.fetchSongsWithTerm(term){[unowned self] songs in
+    func replaceSongsWithTerm(term: String, completion: () -> ()) {
+        ItunesApi.fetchSongsWithTerm(term){[weak self] songs in
+            guard let `self` = self else {
+                return
+            }
+            if let songs = songs {
                 self._songs = songs
-                completion(self._songs)
+            }
+            completion()
+        }
+    }
+    
+    func fetchSongsWithTerm(term: String, completion: () -> ()) {
+        if _songs.isEmpty {
+            ItunesApi.fetchSongsWithTerm(term){[weak self] songs in
+                guard let `self` = self else {
+                    return
+                }
+                if let songs = songs {
+                    self._songs = songs
+                    completion()
+                } else {
+                    completion()
+                }
             }
         } else {
-            completion(_songs)
+            completion()
         }
     }
     
