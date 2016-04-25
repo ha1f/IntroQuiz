@@ -8,15 +8,35 @@
 
 import AVFoundation
 
+protocol SongPlayerDelegate {
+    func songPlayerDidFinishedPlaying(songPlayer: SongPlayer)
+    func songPlayerPausingStatusDidChange(songPlayer: SongPlayer)
+}
+
 class SongPlayer {
     
     static let FADE_POWER: Float = 0.05
     
-    private var player: AVPlayer = AVPlayer()
+    private var player: AVPlayer
     private var fadeTimer: NSTimer?
-    private var _isPausing: Bool = true
+    private var _isPausing: Bool = true {
+        didSet {
+            delegate?.songPlayerPausingStatusDidChange(self)
+        }
+    }
     var isPausing: Bool {
         return _isPausing
+    }
+    
+    var delegate: SongPlayerDelegate?
+    
+    init() {
+        player = AVPlayer()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachedEnd), name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+    }
+    
+    @objc func reachedEnd() {
+        delegate?.songPlayerDidFinishedPlaying(self)
     }
     
     func setUrl(urlString: String) {

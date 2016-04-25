@@ -11,6 +11,8 @@ import UIKit
 class PlaySongViewController: UIViewController {
     
     @IBOutlet weak var artworkImageView: UIImageView!
+    @IBOutlet weak var playPauseButton: UIButton!
+    
     let player: SongPlayer = ModelManager.manager.songPlayer
     var song: Song! = nil
     
@@ -21,10 +23,10 @@ class PlaySongViewController: UIViewController {
         
         artworkImageView.sd_setImageWithURL(NSURL(string: song.artwork100Url))
         
+        player.delegate = self
         player.setUrl(song.previewUrl)
-        player.setVolume(2.0)
+        player.setVolume(1.0)
         player.play()
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -33,10 +35,30 @@ class PlaySongViewController: UIViewController {
     }
     
     func dismiss() {
-        dismissViewControllerAnimated(true, completion: nil)
+        navigationController?.popViewControllerAnimated(true)
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func pressedDismissButton() {
+    @IBAction func tappedPlayPauseButton(sender: AnyObject) {
+        if player.isPausing {
+            player.play()
+        } else {
+            player.pause()
+        }
+    }
+    
+}
+
+extension PlaySongViewController: SongPlayerDelegate {
+    func songPlayerDidFinishedPlaying(songPlayer: SongPlayer) {
         dismiss()
+    }
+    
+    func songPlayerPausingStatusDidChange(songPlayer: SongPlayer) {
+        if songPlayer.isPausing {
+            playPauseButton.setTitle("Play", forState: .Normal)
+        } else {
+            playPauseButton.setTitle("Pause", forState: .Normal)
+        }
     }
 }

@@ -28,9 +28,12 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLt-tc-fM0">
                                 <rect key="frame" x="164" y="515" width="46" height="50"/>
-                                <state key="normal" title="Pause">
+                                <state key="normal" title="PPPP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedPlayPauseButton:" destination="6MZ-d0-DRd" eventType="touchUpInside" id="y8D-ET-J07"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-rV-V39">
                                 <rect key="frame" x="35" y="378" width="304" height="31"/>
@@ -41,6 +44,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="artworkImageView" destination="IB6-r7-vW2" id="WUX-Ge-jTu"/>
+                        <outlet property="playPauseButton" destination="OLt-tc-fM0" id="kae-sB-iq6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mya-Y9-d0h" userLabel="First Responder" sceneMemberID="firstResponder"/>

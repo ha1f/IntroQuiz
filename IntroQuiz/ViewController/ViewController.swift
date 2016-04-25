@@ -59,7 +59,6 @@ class ViewController: UIViewController {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        print("search")
         searchSongs(searchBar.text ?? "")
     }
     
