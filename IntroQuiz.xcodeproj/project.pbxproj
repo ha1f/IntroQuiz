@@ -28,6 +28,12 @@
 		5547F4201CCCA42C0023B8A0 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F41F1CCCA42C0023B8A0 /* SongRepository.swift */; };
 		5547F4221CCCA6ED0023B8A0 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F4211CCCA6ED0023B8A0 /* ModelManager.swift */; };
 		5547F4241CCCA9320023B8A0 /* SongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F4231CCCA9320023B8A0 /* SongsTableViewCell.swift */; };
+		556962001CCDA13300525025 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FD1CCDA13300525025 /* Realm.framework */; };
+		556962011CCDA13300525025 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FD1CCDA13300525025 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		556962021CCDA13300525025 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FE1CCDA13300525025 /* RealmSwift.framework */; };
+		556962031CCDA13300525025 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FE1CCDA13300525025 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		556962041CCDA13300525025 /* WebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FF1CCDA13300525025 /* WebImage.framework */; };
+		556962051CCDA13300525025 /* WebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 556961FF1CCDA13300525025 /* WebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +60,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				556962011CCDA13300525025 /* Realm.framework in Embed Frameworks */,
+				556962051CCDA13300525025 /* WebImage.framework in Embed Frameworks */,
 				5547F40F1CC7ACC20023B8A0 /* SwiftyJSON.framework in Embed Frameworks */,
+				556962031CCDA13300525025 /* RealmSwift.framework in Embed Frameworks */,
 				5547F40D1CC7ACC20023B8A0 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -88,6 +97,9 @@
 		5547F41F1CCCA42C0023B8A0 /* SongRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		5547F4211CCCA6ED0023B8A0 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		5547F4231CCCA9320023B8A0 /* SongsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsTableViewCell.swift; sourceTree = "<group>"; };
+		556961FD1CCDA13300525025 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		556961FE1CCDA13300525025 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		556961FF1CCDA13300525025 /* WebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebImage.framework; path = Carthage/Build/iOS/WebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +107,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556962001CCDA13300525025 /* Realm.framework in Frameworks */,
+				556962041CCDA13300525025 /* WebImage.framework in Frameworks */,
 				5547F40E1CC7ACC20023B8A0 /* SwiftyJSON.framework in Frameworks */,
+				556962021CCDA13300525025 /* RealmSwift.framework in Frameworks */,
 				5547F40C1CC7ACC20023B8A0 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +135,9 @@
 		5547F3C91CC7A8790023B8A0 = {
 			isa = PBXGroup;
 			children = (
+				556961FD1CCDA13300525025 /* Realm.framework */,
+				556961FE1CCDA13300525025 /* RealmSwift.framework */,
+				556961FF1CCDA13300525025 /* WebImage.framework */,
 				5547F40A1CC7ACC20023B8A0 /* Alamofire.framework */,
 				5547F40B1CC7ACC20023B8A0 /* SwiftyJSON.framework */,
 				5547F3D41CC7A8790023B8A0 /* IntroQuiz */,

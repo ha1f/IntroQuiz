@@ -1,2 +1,4 @@
 github "Alamofire/Alamofire"
 github "SwiftyJSON/SwiftyJSON"
+github "rs/SDWebImage"
+github "realm/realm-cocoa"

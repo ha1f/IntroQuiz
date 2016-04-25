@@ -14,6 +14,7 @@ struct Song {
     var releaseDate: String
     
     var artworkUrl: String
+    var artwork100Url: String
     
     var trackTimeMillis: Int
     var primaryGenreName: String
@@ -27,6 +28,7 @@ struct Song {
         releaseDate = songJson["releaseDate"].string ?? ""
         
         artworkUrl = songJson["artworkUrl60"].string ?? ""
+        artwork100Url = songJson["artworkUrl100"].string ?? ""
         
         trackTimeMillis = songJson["trackTimeMillis"].int ?? 0
         primaryGenreName = songJson["primaryGenreName"].string ?? ""
@@ -41,6 +43,7 @@ struct Song {
         releaseDate = ""
         
         artworkUrl = ""
+        artwork100Url = ""
         
         trackTimeMillis = 0
         primaryGenreName = ""

@@ -30,6 +30,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>mzstatic.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
 			<key>apple.com</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

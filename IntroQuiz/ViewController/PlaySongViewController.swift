@@ -10,6 +10,7 @@ import UIKit
 
 class PlaySongViewController: UIViewController {
     
+    @IBOutlet weak var artworkImageView: UIImageView!
     let player: SongPlayer = ModelManager.manager.songPlayer
     var song: Song! = nil
     
@@ -17,6 +18,8 @@ class PlaySongViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Player"
+        
+        artworkImageView.sd_setImageWithURL(NSURL(string: song.artwork100Url))
         
         player.setUrl(song.previewUrl)
         player.setVolume(2.0)

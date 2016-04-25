@@ -39,6 +39,9 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="artworkImageView" destination="IB6-r7-vW2" id="WUX-Ge-jTu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mya-Y9-d0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebImage
 
 class SongsTableViewCell: UITableViewCell {
     
@@ -15,9 +16,9 @@ class SongsTableViewCell: UITableViewCell {
     @IBOutlet weak var artistNameLabel: UILabel!
     
     func setSong(song: Song) {
+        artworkImageView.sd_setImageWithURL(NSURL(string: song.artworkUrl))
         trackNameLabel.text = song.trackName
         artistNameLabel.text = song.artistName
     }
-    
     
 }
