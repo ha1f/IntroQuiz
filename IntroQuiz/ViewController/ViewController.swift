@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ViewController: UIViewController {
     
@@ -14,9 +15,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var songsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var currentSongView: CurrentSongView!
+    
+    let player = ModelManager.manager.songPlayer
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Songs"
         
         songRepository.fetchSongsWithTerm("sekai"){[weak self] _ in
             guard let `self` = self else {
@@ -30,8 +35,8 @@ class ViewController: UIViewController {
         songsTableView.contentOffset = CGPoint(x: 0.0, y: 0.0)
         
         searchBar.delegate = self
-        
-        title = "Songs"
+        player.delegate = self
+        player.setVolume(1.0)
     }
     
     func searchSongs(term: String) {
@@ -43,18 +48,59 @@ class ViewController: UIViewController {
             self.searchBar.resignFirstResponder()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func playSong(song: Song) {
-        let storyboard = UIStoryboard(name: "PlaySongView", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! PlaySongViewController
-        controller.song = song
-        self.navigationController?.pushViewController(controller, animated: true)
-    }    
+        // let storyboard = UIStoryboard(name: "PlaySongView", bundle: nil)
+        // let controller = storyboard.instantiateInitialViewController() as! PlaySongViewController
+        // controller.song = song
+        // self.navigationController?.pushViewController(controller, animated: true)
+        
+        if currentSongView.song?.previewUrl == song.previewUrl {
+            return
+        }
+        currentSongView.setSong(song)
+        player.setUrl(song.previewUrl)
+        player.play()
+    }
+    
+    @IBAction func tappedShareButton(sender: AnyObject) {
+        guard let song = currentSongView.song else {
+            return
+        }
+        
+        let postTwiterView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        postTwiterView.setInitialText("Now playing\n\"\(song.trackName)\" / \(song.artistName)\n\nLet's try on\n\(song.previewUrl)")
+        //postTwiterView.addImage(artworkImageView.image)
+        navigationController?.presentViewController(postTwiterView, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedPlayPauseButton(sender: AnyObject) {
+        if player.isPausing {
+            player.play()
+        } else {
+            player.pause()
+        }
+    }
+}
+
+extension ViewController: SongPlayerDelegate {
+    func songPlayerDidFinishedPlaying(songPlayer: SongPlayer) {
+        player.pause()
+        player.seekTo(0)
+    }
+    
+    func songPlayerPausingStatusDidChange(songPlayer: SongPlayer) {
+        if songPlayer.isPausing {
+            currentSongView.playPauseButton.setTitle("Play", forState: .Normal)
+        } else {
+            currentSongView.playPauseButton.setTitle("Pause", forState: .Normal)
+        }
+    }
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -93,4 +139,3 @@ extension ViewController: UITableViewDelegate {
         searchBar.resignFirstResponder()
     }
 }
-

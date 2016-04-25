@@ -31,9 +31,6 @@
                                 <state key="normal" title="PPPP">
                                     <color key="titleColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="tappedPlayPauseButton:" destination="6MZ-d0-DRd" eventType="touchUpInside" id="y8D-ET-J07"/>
-                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r8N-rV-V39">
                                 <rect key="frame" x="35" y="378" width="304" height="31"/>
@@ -43,18 +40,11 @@
                                 <state key="normal" title="Share">
                                     <color key="titleColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="tappedShareButton:" destination="6MZ-d0-DRd" eventType="touchUpInside" id="qjz-2u-MbQ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="artworkImageView" destination="IB6-r7-vW2" id="WUX-Ge-jTu"/>
-                        <outlet property="playPauseButton" destination="OLt-tc-fM0" id="kae-sB-iq6"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mya-Y9-d0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -33,15 +35,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-Ys-Yru">
-                                <rect key="frame" x="0.0" y="108" width="375" height="482"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-Ys-Yru">
+                                <rect key="frame" x="-4" y="108" width="383" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SongsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongsTableViewCell" rowHeight="76" id="cLF-Jj-IQb" customClass="SongsTableViewCell" customModule="IntroQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="28" width="383" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cLF-Jj-IQb" id="yvB-Rf-QzY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rVb-lG-o3w">
@@ -54,7 +56,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="One Direction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGQ-Se-BVP">
-                                                    <rect key="frame" x="99" y="46" width="116" height="21"/>
+                                                    <rect key="frame" x="99" y="46" width="224" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.44359456806282727" green="0.44359456806282727" blue="0.44359456806282727" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -69,8 +71,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="sekai" placeholder="検索" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-TA-tkY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <searchBar contentMode="redraw" text="sekai" placeholder="検索" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-TA-tkY">
+                                <rect key="frame" x="-4" y="64" width="383" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <scopeButtonTitles>
                                     <string>Artist</string>
@@ -78,12 +80,103 @@
                                     <string>Albam</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTv-g6-7KI" customClass="CurrentSongView" customModule="IntroQuiz" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="592" width="383" height="75"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TwitterLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BPd-Eg-eMQ">
+                                        <rect key="frame" x="19" y="0.0" width="75" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BPd-Eg-eMQ" secondAttribute="height" multiplier="1:1" id="0yx-pZ-t3N"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GJ-Rr-Qtw">
+                                        <rect key="frame" x="112" y="8" width="177" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="hWU-42-L7p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Direction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRH-ml-2bl">
+                                        <rect key="frame" x="112" y="41" width="190" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="zsD-Fv-Nn8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.44359456809999998" green="0.44359456809999998" blue="0.44359456809999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ms-OV-MiA">
+                                        <rect key="frame" x="329" y="23" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0Ms-OV-MiA" secondAttribute="height" multiplier="1:1" id="wRI-hd-UoC"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="TwitterLogo.png"/>
+                                        <connections>
+                                            <action selector="tappedShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDC-sV-vsT"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vad-3i-vOj">
+                                        <rect key="frame" x="263" y="23" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="CwM-NR-mJa"/>
+                                            <constraint firstAttribute="height" constant="30" id="uYB-Mq-Nyo"/>
+                                        </constraints>
+                                        <state key="normal" title="Pause">
+                                            <color key="titleColor" red="0.70988685344827573" green="0.1455010775862069" blue="0.71656788793103354" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXh-HD-00S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99910447582678874" green="0.9075611579623688" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="FRH-ml-2bl" secondAttribute="bottom" constant="13" id="2ep-tB-bss"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ms-OV-MiA" secondAttribute="bottom" constant="22" id="3kv-Ko-l5G"/>
+                                    <constraint firstItem="vad-3i-vOj" firstAttribute="top" secondItem="VTv-g6-7KI" secondAttribute="top" constant="23" id="50x-r1-owc"/>
+                                    <constraint firstItem="0Ms-OV-MiA" firstAttribute="leading" secondItem="vad-3i-vOj" secondAttribute="trailing" constant="20" id="DMA-KR-hf0"/>
+                                    <constraint firstItem="4GJ-Rr-Qtw" firstAttribute="leading" secondItem="BPd-Eg-eMQ" secondAttribute="trailing" constant="18" id="FE9-5N-lGu"/>
+                                    <constraint firstItem="4GJ-Rr-Qtw" firstAttribute="top" secondItem="VTv-g6-7KI" secondAttribute="top" constant="8" id="MmZ-Kr-dmO"/>
+                                    <constraint firstItem="FRH-ml-2bl" firstAttribute="top" secondItem="4GJ-Rr-Qtw" secondAttribute="bottom" constant="1" id="ROT-Zt-D64"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Ms-OV-MiA" secondAttribute="trailing" constant="24" id="SoC-fA-gm7"/>
+                                    <constraint firstAttribute="height" constant="75" id="XDa-2v-WO7"/>
+                                    <constraint firstItem="BPd-Eg-eMQ" firstAttribute="top" secondItem="VTv-g6-7KI" secondAttribute="top" id="ZP8-sw-I0Q"/>
+                                    <constraint firstItem="FRH-ml-2bl" firstAttribute="leading" secondItem="BPd-Eg-eMQ" secondAttribute="trailing" constant="18" id="d1y-ni-CkX"/>
+                                    <constraint firstAttribute="bottom" secondItem="BPd-Eg-eMQ" secondAttribute="bottom" id="fak-N2-Bf8"/>
+                                    <constraint firstItem="0Ms-OV-MiA" firstAttribute="leading" secondItem="FRH-ml-2bl" secondAttribute="trailing" constant="27" id="jl7-77-d52"/>
+                                    <constraint firstItem="0Ms-OV-MiA" firstAttribute="leading" secondItem="4GJ-Rr-Qtw" secondAttribute="trailing" constant="40" id="rOQ-f9-JA2"/>
+                                    <constraint firstItem="0Ms-OV-MiA" firstAttribute="top" secondItem="VTv-g6-7KI" secondAttribute="top" constant="23" id="sAB-Hu-zeU"/>
+                                    <constraint firstItem="BPd-Eg-eMQ" firstAttribute="leading" secondItem="VTv-g6-7KI" secondAttribute="leading" constant="19" id="t2i-qp-DGb"/>
+                                    <constraint firstAttribute="bottom" secondItem="vad-3i-vOj" secondAttribute="bottom" constant="22" id="ugI-bB-MF1"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="artistNameLabel" destination="FRH-ml-2bl" id="AfW-iJ-E9X"/>
+                                    <outlet property="artworkImageView" destination="BPd-Eg-eMQ" id="JW7-RP-ecC"/>
+                                    <outlet property="playPauseButton" destination="vad-3i-vOj" id="8bo-gl-y4J"/>
+                                    <outlet property="trackNameLabel" destination="4GJ-Rr-Qtw" id="W4Z-he-aIC"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PnL-Ys-Yru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7JH-OU-sXZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VTv-g6-7KI" secondAttribute="trailing" constant="-20" id="8xl-qu-a2F"/>
+                            <constraint firstItem="cCX-TA-tkY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Ld9-vr-clA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VTv-g6-7KI" secondAttribute="bottom" id="Z6W-E8-V5r"/>
+                            <constraint firstItem="VTv-g6-7KI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="avv-3Q-Ybc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cCX-TA-tkY" secondAttribute="trailing" constant="-20" id="bux-UA-c4v"/>
+                            <constraint firstItem="cCX-TA-tkY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fPi-Fm-Blk"/>
+                            <constraint firstItem="PnL-Ys-Yru" firstAttribute="top" secondItem="cCX-TA-tkY" secondAttribute="bottom" id="gpP-4R-a8m"/>
+                            <constraint firstItem="VTv-g6-7KI" firstAttribute="top" secondItem="PnL-Ys-Yru" secondAttribute="bottom" id="hiy-gf-E9Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PnL-Ys-Yru" secondAttribute="trailing" constant="-20" id="kCW-h5-bAG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Songs" id="i5x-7m-CcK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="currentSongView" destination="VTv-g6-7KI" id="Y7y-Nr-QEE"/>
                         <outlet property="searchBar" destination="cCX-TA-tkY" id="GIr-On-Y9z"/>
                         <outlet property="songsTableView" destination="PnL-Ys-Yru" id="Eo3-8Y-eqD"/>
                     </connections>
@@ -93,4 +186,7 @@
             <point key="canvasLocation" x="304.5" y="278.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TwitterLogo.png" width="128" height="128"/>
+    </resources>
 </document>
