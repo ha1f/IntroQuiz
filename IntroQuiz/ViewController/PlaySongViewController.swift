@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Social
+import WebImage
 
 class PlaySongViewController: UIViewController {
     
@@ -46,6 +48,16 @@ class PlaySongViewController: UIViewController {
             player.pause()
         }
     }
+    
+    @IBAction func tappedShareButton(sender: AnyObject) {
+        
+        let postTwiterView = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+
+        postTwiterView.setInitialText("Now playing\n\"\(song.trackName)\" / \(song.artistName)\n\nLet's try on\n\(song.previewUrl)")
+        //postTwiterView.addImage(artworkImageView.image)
+        navigationController?.presentViewController(postTwiterView, animated: true, completion: nil)
+    }
+    
     
 }
 
