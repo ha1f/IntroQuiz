@@ -9,12 +9,12 @@
 import Foundation
 
 class SongRepository {
-    private var _songs: [Song] = []
+    fileprivate var _songs: [Song] = []
     var songs: [Song] {
         return _songs
     }
     
-    func replaceSongsWithTerm(term: String, completion: () -> ()) {
+    func replaceSongsWithTerm(_ term: String, completion: @escaping () -> ()) {
         ItunesApi.fetchSongsWithTerm(term){[weak self] songs in
             guard let `self` = self else {
                 return
@@ -26,7 +26,7 @@ class SongRepository {
         }
     }
     
-    func fetchSongsWithTerm(term: String, completion: () -> ()) {
+    func fetchSongsWithTerm(_ term: String, completion: @escaping () -> ()) {
         if _songs.isEmpty {
             ItunesApi.fetchSongsWithTerm(term){[weak self] songs in
                 guard let `self` = self else {

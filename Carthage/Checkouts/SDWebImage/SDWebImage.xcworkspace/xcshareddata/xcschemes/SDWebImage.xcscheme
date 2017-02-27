@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "53761307155AD0D5005750A4"
-               BuildableName = "libSDWebImage.a"
-               BlueprintName = "SDWebImage"
+               BuildableName = "libSDWebImage iOS static.a"
+               BlueprintName = "SDWebImage iOS static"
                ReferencedContainer = "container:SDWebImage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53761307155AD0D5005750A4"
-            BuildableName = "libSDWebImage.a"
-            BlueprintName = "SDWebImage"
+            BuildableName = "libSDWebImage iOS static.a"
+            BlueprintName = "SDWebImage iOS static"
             ReferencedContainer = "container:SDWebImage.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

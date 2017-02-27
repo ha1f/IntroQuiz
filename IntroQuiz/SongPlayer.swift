@@ -9,17 +9,17 @@
 import AVFoundation
 
 protocol SongPlayerDelegate {
-    func songPlayerDidFinishedPlaying(songPlayer: SongPlayer)
-    func songPlayerPausingStatusDidChange(songPlayer: SongPlayer)
+    func songPlayerDidFinishedPlaying(_ songPlayer: SongPlayer)
+    func songPlayerPausingStatusDidChange(_ songPlayer: SongPlayer)
 }
 
 class SongPlayer {
     
     static let FADE_POWER: Float = 0.05
     
-    private var player: AVPlayer
-    private var fadeTimer: NSTimer?
-    private var _isPausing: Bool = true {
+    fileprivate var player: AVPlayer
+    fileprivate var fadeTimer: Timer?
+    fileprivate var _isPausing: Bool = true {
         didSet {
             delegate?.songPlayerPausingStatusDidChange(self)
         }
@@ -32,29 +32,29 @@ class SongPlayer {
     
     init() {
         player = AVPlayer()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.reachedEnd), name: AVPlayerItemDidPlayToEndTimeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachedEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     @objc func reachedEnd() {
         delegate?.songPlayerDidFinishedPlaying(self)
     }
     
-    func setUrl(urlString: String) {
-        player.replaceCurrentItemWithPlayerItem(AVPlayerItem(asset: AVAsset(URL: NSURL(string: urlString)!)))
+    func setUrl(_ urlString: String) {
+        player.replaceCurrentItem(with: AVPlayerItem(asset: AVAsset(url: URL(string: urlString)!)))
         
         seekTo(0)
         _isPausing = true
     }
     
-    func setVolume(volume: Float) {
+    func setVolume(_ volume: Float) {
         player.volume = Util.restrectedValue(volume, min: 0.0, max: 1.0)
     }
     
     func fadeOut() {
-        fadeTimer = NSTimer.scheduledTimerWithTimeInterval(0.02, target: self, selector: #selector(decresc), userInfo: nil, repeats: true)
+        fadeTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(decresc), userInfo: nil, repeats: true)
     }
     
-    @objc private func decresc() {
+    @objc fileprivate func decresc() {
         let currentVolume = player.volume
         if currentVolume > SongPlayer.FADE_POWER {
             player.volume = currentVolume - SongPlayer.FADE_POWER
@@ -64,13 +64,13 @@ class SongPlayer {
         }
     }
     
-    func setSong(song: Song) {
+    func setSong(_ song: Song) {
         let urlString = song.previewUrl
         setUrl(urlString)
     }
     
-    func seekTo(seconds: Double) {
-        player.seekToTime(CMTime(seconds: seconds*10, preferredTimescale: 10))
+    func seekTo(_ seconds: Double) {
+        player.seek(to: CMTime(seconds: seconds*10, preferredTimescale: 10))
     }
     
     func getProgress() -> Double {
@@ -92,7 +92,7 @@ class SongPlayer {
     }
     
     func currentTime() -> Double {
-        return player.currentTime().seconds ?? 0.0
+        return player.currentTime().seconds 
     }
     
 }

@@ -9,17 +9,17 @@
 import Foundation
 
 class Playlist {
-    private var songs: [Song] = []
+    fileprivate var songs: [Song] = []
     
-    func append(song: Song) {
+    func append(_ song: Song) {
         songs.append(song)
     }
     
-    func insert(song: Song, index: Int) {
-        songs.insert(song, atIndex: index)
+    func insert(_ song: Song, index: Int) {
+        songs.insert(song, at: index)
     }
     
-    func removeAtIndex(index: Int) {
-        songs.removeAtIndex(index)
+    func removeAtIndex(_ index: Int) {
+        songs.remove(at: index)
     }
 }

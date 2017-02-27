@@ -6,8 +6,8 @@
 //  Copyright © 2016年 ha1f. All rights reserved.
 //
 
-import Alamofire
 import SwiftyJSON
+import Alamofire
 
 struct ApiClient {
     let uri: String
@@ -23,8 +23,8 @@ struct ApiClient {
         self.header = header
     }
     
-    func get(params: [String: String], completionHandler: JSON? -> Void) {
-        request(.GET, uri, parameters: params, encoding: .URL, headers: header)
+    func get(_ params: [String: String], completionHandler: @escaping (JSON?) -> Void) {
+        request(uri, method: .get, parameters: params, encoding: URLEncoding.default, headers: header)
             .responseJSON { response in
                 if let data = response.result.value {
                     completionHandler(JSON(data))
@@ -34,8 +34,8 @@ struct ApiClient {
             }
     }
     
-    func post(params: [String: String], completionHandler: JSON? -> Void) {
-        request(.POST, uri, parameters: params, encoding: .URL, headers: header)
+    func post(_ params: [String: String], completionHandler: @escaping (JSON?) -> Void) {
+        request(uri, method: .post, parameters: params, encoding: URLEncoding.default, headers: header)
             .responseJSON{ response in
                 if let data = response.result.value {
                     completionHandler(JSON(data))
@@ -52,7 +52,7 @@ class ItunesApi {
     
     static let client = ApiClient(uri: URI)
     
-    static func fetchSongsWithTerm(term: String, completion completionHandler: (songs: [Song]?) -> ()) {
+    static func fetchSongsWithTerm(_ term: String, completion completionHandler: @escaping (_ songs: [Song]?) -> ()) {
         let params = ["term": term, "country": "JP", "entity": "musicTrack"]
         
         client.get(params) { json in
@@ -60,9 +60,9 @@ class ItunesApi {
                 let songs = trackJsons.map({trackJson in
                     Song(songJson: trackJson)
                 })
-                completionHandler(songs: songs)
+                completionHandler(songs)
             } else {
-                completionHandler(songs: nil)
+                completionHandler(nil)
             }
         }
     }

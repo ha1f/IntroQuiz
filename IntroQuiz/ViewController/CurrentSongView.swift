@@ -17,16 +17,16 @@ class CurrentSongView: UIView {
     
     var song: Song? = nil
     
-    func setSong(song: Song) {
+    func setSong(_ song: Song) {
         self.song = song
         
-        artworkImageView.sd_setImageWithURL(NSURL(string: song.artworkUrl))
-        artworkImageView.hidden = false
+        artworkImageView.sd_setImage(with: URL(string: song.artworkUrl))
+        artworkImageView.isHidden = false
         trackNameLabel.text = song.trackName
-        trackNameLabel.hidden = false
+        trackNameLabel.isHidden = false
         artistNameLabel.text = song.artistName
-        artistNameLabel.hidden = false
+        artistNameLabel.isHidden = false
         
-        playPauseButton.hidden = false
+        playPauseButton.isHidden = false
     }
 }
