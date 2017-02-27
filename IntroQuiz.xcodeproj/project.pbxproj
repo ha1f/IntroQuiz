@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5547F3D61CC7A8790023B8A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F3D51CC7A8790023B8A0 /* AppDelegate.swift */; };
 		5547F3D81CC7A8790023B8A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F3D71CC7A8790023B8A0 /* ViewController.swift */; };
-		5547F3DB1CC7A8790023B8A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5547F3D91CC7A8790023B8A0 /* Main.storyboard */; };
 		5547F3DD1CC7A8790023B8A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5547F3DC1CC7A8790023B8A0 /* Assets.xcassets */; };
 		5547F3E01CC7A8790023B8A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5547F3DE1CC7A8790023B8A0 /* LaunchScreen.storyboard */; };
 		5547F3EB1CC7A87A0023B8A0 /* IntroQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547F3EA1CC7A87A0023B8A0 /* IntroQuizTests.swift */; };
@@ -34,6 +33,7 @@
 		E9D9C8971E6474B20061448E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9C8961E6474B20061448E /* Alamofire.framework */; };
 		E9D9C8981E64766B0061448E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9C8961E6474B20061448E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9D9C8991E64766B0061448E /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9C8931E64730A0061448E /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9D9C89D1E6477BA0061448E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D9C89B1E6477BA0061448E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		5547F3D21CC7A8790023B8A0 /* IntroQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntroQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5547F3D51CC7A8790023B8A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5547F3D71CC7A8790023B8A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = IntroQuiz/ViewController/ViewController.swift; sourceTree = SOURCE_ROOT; };
-		5547F3DA1CC7A8790023B8A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5547F3DC1CC7A8790023B8A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5547F3DF1CC7A8790023B8A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5547F3E11CC7A8790023B8A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		556962091CCE582C00525025 /* CurrentSongView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSongView.swift; sourceTree = "<group>"; };
 		E9D9C8931E64730A0061448E /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		E9D9C8961E6474B20061448E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		E9D9C89C1E6477BA0061448E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = IntroQuiz/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +233,7 @@
 		5547F41B1CCBE6B50023B8A0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5547F3D91CC7A8790023B8A0 /* Main.storyboard */,
+				E9D9C89B1E6477BA0061448E /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -368,8 +368,8 @@
 			files = (
 				5547F3E01CC7A8790023B8A0 /* LaunchScreen.storyboard in Resources */,
 				5547F3DD1CC7A8790023B8A0 /* Assets.xcassets in Resources */,
-				5547F3DB1CC7A8790023B8A0 /* Main.storyboard in Resources */,
 				556962081CCE299900525025 /* TwitterLogo.png in Resources */,
+				E9D9C89D1E6477BA0061448E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,21 +461,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5547F3D91CC7A8790023B8A0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5547F3DA1CC7A8790023B8A0 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		5547F3DE1CC7A8790023B8A0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5547F3DF1CC7A8790023B8A0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E9D9C89B1E6477BA0061448E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9D9C89C1E6477BA0061448E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

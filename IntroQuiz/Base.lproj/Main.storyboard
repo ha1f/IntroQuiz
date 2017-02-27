@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1p0-Gx-bpT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1p0-Gx-bpT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -37,7 +41,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-Ys-Yru">
                                 <rect key="frame" x="-4" y="108" width="383" height="484"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SongsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongsTableViewCell" rowHeight="76" id="cLF-Jj-IQb" customClass="SongsTableViewCell" customModule="IntroQuiz" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="76"/>
@@ -48,17 +52,20 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rVb-lG-o3w">
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Happily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YON-6q-Egt">
                                                     <rect key="frame" x="99" y="7" width="249" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="One Direction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGQ-Se-BVP">
                                                     <rect key="frame" x="99" y="46" width="224" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.44359456806282727" green="0.44359456806282727" blue="0.44359456806282727" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.44359456806282727" green="0.44359456806282727" blue="0.44359456806282727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -104,7 +111,7 @@
                                             <constraint firstAttribute="height" constant="21" id="zsD-Fv-Nn8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.44359456809999998" green="0.44359456809999998" blue="0.44359456809999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.44359456809999998" green="0.44359456809999998" blue="0.44359456809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ms-OV-MiA">
@@ -124,14 +131,14 @@
                                             <constraint firstAttribute="height" constant="30" id="uYB-Mq-Nyo"/>
                                         </constraints>
                                         <state key="normal" title="Pause">
-                                            <color key="titleColor" red="0.70988685344827573" green="0.1455010775862069" blue="0.71656788793103354" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.70988685344827573" green="0.1455010775862069" blue="0.71656788793103354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedPlayPauseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXh-HD-00S"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99910447582678874" green="0.9075611579623688" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="FRH-ml-2bl" secondAttribute="bottom" constant="13" id="2ep-tB-bss"/>
                                     <constraint firstAttribute="bottom" secondItem="0Ms-OV-MiA" secondAttribute="bottom" constant="22" id="3kv-Ko-l5G"/>
@@ -159,7 +166,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PnL-Ys-Yru" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7JH-OU-sXZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VTv-g6-7KI" secondAttribute="trailing" constant="-20" id="8xl-qu-a2F"/>
@@ -174,7 +181,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Songs" id="i5x-7m-CcK"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="currentSongView" destination="VTv-g6-7KI" id="Y7y-Nr-QEE"/>
                         <outlet property="searchBar" destination="cCX-TA-tkY" id="GIr-On-Y9z"/>
